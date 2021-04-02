@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="representative"
+            type="com.example.android.politicalpreparedness.representative.model.Representative" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/representatives_list_item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/default_padding">
+
+        <ImageView
+            android:id="@+id/representative_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/representative_photo"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:profileImage="@{representative.official.photoUrl}" />
+
+        <TextView
+            android:id="@+id/representative_title"
+            style="@style/VoterInfoTitle"
+            android:layout_marginStart="@dimen/default_padding"
+            android:text="@{representative.office.name}"
+            app:layout_constraintStart_toEndOf="@id/representative_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="U.S. Senator" />
+
+        <TextView
+            style="@style/RepresentativeNameStyle"
+            android:id="@+id/representative_name"
+            android:text="@{representative.official.name}"
+            app:layout_constraintStart_toStartOf="@id/representative_title"
+            app:layout_constraintTop_toBottomOf="@id/representative_title"
+            tools:text="Dianne Feinstein" />
+
+        <TextView
+            android:id="@+id/representative_party"
+            android:text="@{representative.official.party}"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/representative_title"
+            app:layout_constraintTop_toBottomOf="@id/representative_name"
+            tools:text="Democratic Party" />
+
+        <ImageView
+            android:id="@+id/representative_twitter"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/see_representative_twitter_page"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/representative_facebook"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:contentDescription="@string/see_representative_facebook_page"
+            android:src="@drawable/ic_facebook"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/representative_twitter" />
+
+        <ImageView
+            android:id="@+id/representative_www"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:contentDescription="@string/see_representative_webpage"
+            android:src="@drawable/ic_www"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/representative_facebook" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
